@@ -85,3 +85,7 @@ def scrape_info():
     }
     browser.quit()
     return scraped_info
+if __name__ == "__main__":
+    
+    # If running as script, print scraped data
+    print(scrape_info())
