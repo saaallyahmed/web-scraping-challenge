@@ -16,9 +16,16 @@ def index():
     # Return template and data
     return render_template("index.html", mars=mars)
 
-@app.route('/scrape')
-def scrape():
-    
+@app.route("/scrape")
+def scraper():
+    print("start_scrape")
+    mars = mongo.db.mars
+    mars_data = scrape_mars.scrape_all()
+    mars.update_all({}, {"$set":  mars_data}, upsert=True)
+
+    # Redirect back to home page
+    return redirect("/" code=302)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
