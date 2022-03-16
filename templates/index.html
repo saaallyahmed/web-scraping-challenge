@@ -23,8 +23,8 @@
           <div class="media">
             <div class="media-body">
               <h2>NASA's Mars Rover Drivers Need Your Help</h2>
-              <h4 class="media-heading">{{ mars.news_title }}</h4>
-              <p>{{mars.news }}</p>
+              <div class="article_teaser_body">Using an online tool to label Martian terrain types, you can train an artificial intelligence algorithm that could improve the way engineers guide the Curiosity rover.
+              </div>
             </div>
           </div>
         </div>
@@ -32,15 +32,57 @@
       <div class="row" id="mars-featured-image">
         <div class="col-md-8">
           <h2>Featured Mars Image</h2>
-          <img
+          <div class="description">
+            <a href="cerberus.html" class="itemLink product-item">
+              <img
             src="{{mars.url_featured_image | default('static/images/error.png', true)}}"
             class="img-responsive"
             alt="Responsive image"
           />
+         </div>
         </div>
+          <table class="table">
+          
+          <tbody>
+            <tr>
+              <th scope="row"><b> Mars - Earth Comparison</b></th>
+              <td><span class="orange"><b> Mars</b></span></td>
+              <td><span class="purple"> <b>Earth </b></span> </td>
+            </tr>
+            <tr>
+              <th scope="row">Diameter:</th>
+              <td><span class="orange">6,779 km</span></td>
+              <td><span class="purple">12,742 km</span> </td>
+            </tr>
+            <tr>
+              <th scope="row">Mass:</th>
+              <td><span class="orange">6.39 × 10^23 kg </span></td>
+              <td><span class="purple">5.97 × 10^24 kg</span> </td>
+            </tr>
+             <tr>
+              <th scope="row">Moons:</th>
+              <td><span class="orange">2</span></td>
+              <td><span class="purple">1</span> </td>
+            </tr>
+             <tr>
+              <th scope="row">Distance from Sun:</th>
+              <td><span class="orange">227,943,824 km</span></td>
+              <td><span class="purple">149,598,262 km</span> </td>
+            </tr>
+             <tr>
+              <th scope="row">Length of Year:</th>
+              <td><span class="orange">687 Earth days</span></td>
+              <td><span class="purple">365.24 days</span> </td>
+            </tr>
+             <tr>
+              <th scope="row">Temperature:</th>
+              <td><span class="orange">-87 to -5 °C</span></td>
+              <td><span class="purple">	-88 to 58°C</span> </td>
+            </tr>
+          </tbody>
+        </table>
         <div class="col-md-4">
           <div class="row" id="mars-facts">
-            <h4>Mars Facts</h4>
             {{ mars.facts | safe }}
           </div>
         </div>
@@ -49,12 +91,12 @@
         <div class="page-header">
           <h2 class="text-center">Mars Hemispheres</h2>
         </div> 
-        {% for hemisphere in mars.hemispheres %}
+        {% for hemisphere in mars.hemisphere %}
         <div class="col-md-6">
           <div class="thumbnail">
-            <img src="{{hemisphere.hemisphere | default('static/images/error.png', true)}}" alt="..." />
+            <img src="{{hemisphere.img_url| default('static/images/error.png', true)}}" alt="..." />
             <div class="caption">
-              <h3>{{ hemisphere.title }}</h3>
+              <h3>{{ hemisphere.Title}}</h3>
             </div>
           </div>
         </div>
@@ -63,3 +105,4 @@
     </div>
   </body>
 </html>
+

@@ -39,6 +39,14 @@ def scrape_info():
     print(f"Featured_image_url = {Featured_image_url}")
     url = 'https://marshemispheres.com/'
 
+    #Mars Facts 
+    df = pd.read_html('https://galaxyfacts-mars.com')[0]
+    df.head()
+
+    #Mars Facts 
+    df = pd.read_html('https://galaxyfacts-mars.com')[0]
+    df.head()   
+
 
     browser.visit(url)
     html = browser.html
@@ -81,6 +89,7 @@ def scrape_info():
         'news_title': news_title,
         'news': news_p,
         'url_featured_image': Featured_image_url,
+        'mars_facts': pd,
         'hemisphere': Hemisphere_img_urls
     }
     browser.quit()
