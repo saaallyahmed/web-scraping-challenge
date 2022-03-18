@@ -26,12 +26,12 @@
           <div class="col-6">
             <h1 class="description-header"><b>Featured Mars Image</b></h1>
             <div class="text-left">
-              <img src={{ mars.url_featured_image }} width="300" height="200" alt="Image">
+              <img src={{ mars.url_featured_image }} alt="Image">
             </div>
           </div>
           <div class="col-4">
             <h1 class="description-header"><b>Mars Facts</b></h1>
-            <div class="text-left">
+            <div class="text-right">
               {{ mars.mars_facts | safe}}
             </div>
           </div>
@@ -39,7 +39,7 @@
         <h4 class="text-center"><b>Mars Hemispheres</b></h4>
         </div> 
         {% for hemisphere in mars.hemisphere %}
-        <div class="col-md-6">
+        <div class="col-md-3">
           <div class="thumbnail">
             <img src="{{hemisphere.img_url| default('static/images/error.png', true)}}" alt="..." />
             <div class="caption">
