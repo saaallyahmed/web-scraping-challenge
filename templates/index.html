@@ -13,83 +13,30 @@
     />
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="jumbotron text-center">
-        <h1>Mission to Mars</h1>
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <h1><b>Mission to Mars</b></h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
       </div>
-      <div class="row" id="mars-news">
-        <div class="col-md-12">
-          <div class="media">
-            <div class="media-body">
-              <h2>NASA's Mars Rover Drivers Need Your Help</h2>
-              <div class="article_teaser_body">Using an online tool to label Martian terrain types, you can train an artificial intelligence algorithm that could improve the way engineers guide the Curiosity rover.
-              </div>
+      <h1><b>Latest Mars News</b></h1>
+      <h2>{{ mars.news_title}}</h2>
+      <p>{{ mars.news }} </p>
+      <div class="container-fluid">
+        <div class="row ">
+          <div class="col-6">
+            <h1 class="description-header"><b>Featured Mars Image</b></h1>
+            <div class="text-left">
+              <img src={{ mars.url_featured_image }} width="300" height="200" alt="Image">
+            </div>
+          </div>
+          <div class="col-4">
+            <h1 class="description-header"><b>Mars Facts</b></h1>
+            <div class="text-left">
+              {{ mars.mars_facts | safe}}
             </div>
           </div>
         </div>
-      </div>
-      <div class="row" id="mars-featured-image">
-        <div class="col-md-8">
-          <h2>Featured Mars Image</h2>
-          <div class="description">
-            <a href="cerberus.html" class="itemLink product-item">
-              <img
-            src="{{mars.url_featured_image | default('static/images/error.png', true)}}"
-            class="img-responsive"
-            alt="Responsive image"
-          />
-         </div>
-        </div>
-          <table class="table">
-          
-          <tbody>
-            <tr>
-              <th scope="row"><b> Mars - Earth Comparison</b></th>
-              <td><span class="orange"><b> Mars</b></span></td>
-              <td><span class="purple"> <b>Earth </b></span> </td>
-            </tr>
-            <tr>
-              <th scope="row">Diameter:</th>
-              <td><span class="orange">6,779 km</span></td>
-              <td><span class="purple">12,742 km</span> </td>
-            </tr>
-            <tr>
-              <th scope="row">Mass:</th>
-              <td><span class="orange">6.39 × 10^23 kg </span></td>
-              <td><span class="purple">5.97 × 10^24 kg</span> </td>
-            </tr>
-             <tr>
-              <th scope="row">Moons:</th>
-              <td><span class="orange">2</span></td>
-              <td><span class="purple">1</span> </td>
-            </tr>
-             <tr>
-              <th scope="row">Distance from Sun:</th>
-              <td><span class="orange">227,943,824 km</span></td>
-              <td><span class="purple">149,598,262 km</span> </td>
-            </tr>
-             <tr>
-              <th scope="row">Length of Year:</th>
-              <td><span class="orange">687 Earth days</span></td>
-              <td><span class="purple">365.24 days</span> </td>
-            </tr>
-             <tr>
-              <th scope="row">Temperature:</th>
-              <td><span class="orange">-87 to -5 °C</span></td>
-              <td><span class="purple">	-88 to 58°C</span> </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="col-md-4">
-          <div class="row" id="mars-facts">
-            {{ mars.facts | safe }}
-          </div>
-        </div>
-      </div>
-      <div class="row" id="mars-hemispheres">
-        <div class="page-header">
-          <h2 class="text-center">Mars Hemispheres</h2>
+        <h4 class="text-center"><b>Mars Hemispheres</b></h4>
         </div> 
         {% for hemisphere in mars.hemisphere %}
         <div class="col-md-6">

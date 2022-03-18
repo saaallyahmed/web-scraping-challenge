@@ -14,7 +14,7 @@ def scrape_info():
     #Visit the mars nasa news site
     url = 'https://redplanetscience.com/'
     browser.visit(url)
-    time.sleep(1)
+    time.sleep(3)
 
     #NASA Mars News
     html = browser.html
@@ -43,11 +43,7 @@ def scrape_info():
     df = pd.read_html('https://galaxyfacts-mars.com')[0]
     df.head()
 
-    #Mars Facts 
-    df = pd.read_html('https://galaxyfacts-mars.com')[0]
-    df.head()   
-
-
+    
     browser.visit(url)
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
@@ -89,7 +85,7 @@ def scrape_info():
         'news_title': news_title,
         'news': news_p,
         'url_featured_image': Featured_image_url,
-        'mars_facts': pd,
+        'mars_facts': df.to_html(index = False),
         'hemisphere': Hemisphere_img_urls
     }
     browser.quit()
